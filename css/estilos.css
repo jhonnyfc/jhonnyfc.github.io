@@ -56,11 +56,11 @@ body {
 	margin-right: auto;
 	width: fit-content;
 	color: white;
+	margin-top: 60px;
 }
 
 #nombre{
 	font-size: 3.6em;
-	margin-top: 15%;
 	text-align: center;
 	text-shadow:  3px 3px 3px #000000,3px 3px 3px #000000,3px 3px 3px #000000,3px 3px 3px #000000;
 }
