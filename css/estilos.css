@@ -35,7 +35,7 @@ body {
 }
 
 .main_head {
-	background-image: url('/imgs/fondo2.jpg');
+	background-image: url('/imgs/fondo2.webp');
 	background: linear-gradient(rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0.171)), rgba(0, 0, 0, 0.096) url('/imgs/fondo2.jpg') no-repeat;
 	background-size: cover;
 	width: 100%;
