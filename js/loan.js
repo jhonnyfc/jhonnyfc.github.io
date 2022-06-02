@@ -66,19 +66,22 @@ const inputTiea = document.getElementById(idTiea);
 
 const updateMonth = () => {
   if (years) {
-    months = years * 12;
+    months = (years * 12).toFixed(2);
     inputMonths.value = months;
   }
 };
 
 const updateYears = () => {
   if (months >= 12) {
-    years = months / 12;
+    years = (months / 12).toFixed(2);
     inputYears.value = years;
   }
 };
 
 const updateTiea = () => {
+  tiea = "";
+  inputTiea.value = tiea;
+
   if (tinYear && years) {
     tiea = ((Math.pow(1 + tinYear / 100, years) - 1) * 100).toFixed(2);
     inputTiea.value = tiea;
