@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center><h1>Loan Calculator</h1></center>
+    <center>
+      <div>
+        <label for="price">Dinero Prestamo</label><br />
+        <input id="price" type="text" onchange="loadPrice" />
+      </div>
+
+      <div>
+        <label for="months">Meses</label><br />
+        <input id="months" type="text" onchange="loadMonths" />
+      </div>
+      <div>
+        <label for="years">Años</label><br />
+        <input id="years" type="text" onchange="loadYears" />
+      </div>
+      <div>
+        <label for="tae">TAE Anual</label><br />
+        <input id="tae" type="text" onchange="loadTae" />
+      </div>
+      <div>
+        <label for="tinMonth">TIN Mensual</label><br />
+        <input id="tinMonth" type="text" />
+      </div>
+      <div>
+        <label for="tinYear">TIN Anual</label><br />
+        <input id="tinYear" type="text" />
+      </div>
+      <div>
+        <label for="tiea">Tasa interes efectiva</label><br />
+        <input id="tiea" type="text" disabled />
+      </div>
+
+      <br />
+      <div>
+        <label for="monthPrice">Cuota mensual</label><br />
+        <input id="monthPrice" type="text" disabled />
+      </div>
+      <div>
+        <label for="totalPrice">Pretamo total</label><br />
+        <input id="totalPrice" type="text" disabled />
+      </div>
+    </center>
+
+    <script src="js/loan.js"></script>
+  </body>
+</html>
