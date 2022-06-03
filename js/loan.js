@@ -1,10 +1,17 @@
+const PerdTin = {
+  DAYLI: { id: "DAYLI", perd: 365 },
+  MONTHLY: { id: "MONTHLY", perd: 12 },
+  BIANNUAL: { id: "BIANNUAL", perd: 2 },
+  YEARLY: { id: "YEARLY", perd: 1 },
+};
+
 const idPrice = "price";
 const idMonths = "months";
 const idYears = "years";
+const idPerdTin = "perdTin";
+const idTin = "tin";
+const idTie = "tie";
 const idTae = "tae";
-const idTinMonth = "tinMonth";
-const idTinYear = "tinYear";
-const idTiea = "tiea";
 const idMonthPrice = "monthPrice";
 const idTotalPrice = "totalPrice";
 const inputTag = "input";
@@ -12,10 +19,10 @@ const inputTag = "input";
 let price;
 let months;
 let years;
+let perdTin;
+let tin;
+let tie;
 let tae;
-let tinMonth;
-let tinYear;
-let tiea;
 
 let monthPrice;
 let totalPrice;
@@ -48,21 +55,21 @@ const loadTae = () => {
 const inputTae = document.getElementById(idTae);
 inputTae.addEventListener(inputTag, loadTae);
 
-const loadTinMonth = () => {
-  tinMonth = document.getElementById(idTinMonth).value;
+const loadPerdTin = () => {
+  perdTin = document.getElementById(idPerdTin).value;
   updateTiea();
 };
-const inputTinMonth = document.getElementById(idTinMonth);
-inputTinMonth.addEventListener(inputTag, loadTinMonth);
+const inputPerdTin = document.getElementById(idPerdTin);
+inputPerdTin.addEventListener(inputTag, loadPerdTin);
 
-const loadTinYear = () => {
-  tinYear = document.getElementById(idTinYear).value;
+const loadTin = () => {
+  tin = document.getElementById(idTin).value;
   updateTiea();
 };
-const inputTinYear = document.getElementById(idTinYear);
-inputTinYear.addEventListener(inputTag, loadTinYear);
+const inputTin = document.getElementById(idTin);
+inputTin.addEventListener(inputTag, loadTin);
 
-const inputTiea = document.getElementById(idTiea);
+const inputTie = document.getElementById(idTie);
 
 const updateMonth = () => {
   if (years) {
@@ -79,18 +86,44 @@ const updateYears = () => {
 };
 
 const updateTiea = () => {
-  tiea = "";
-  inputTiea.value = tiea;
+  tie = "";
+  inputTie.value = tie;
 
-  if (tinYear && years) {
-    tiea = ((Math.pow(1 + tinYear / 100, years) - 1) * 100).toFixed(2);
-    inputTiea.value = tiea;
+  if (tin && perdTin === PerdTin.DAYLI.id) {
+    tie = (
+      (Math.pow(1 + tin / 100 / PerdTin.DAYLI.perd, PerdTin.DAYLI.perd) - 1) *
+      100
+    ).toFixed(2);
+    inputTie.value = tie;
     return;
   }
 
-  if (tinMonth && months) {
-    tiea = ((Math.pow(1 + tinMonth / 100, months) - 1) * 100).toFixed(2);
-    inputTiea.value = tiea;
+  if (tin && perdTin === PerdTin.MONTHLY.id) {
+    tie = (
+      (Math.pow(1 + tin / 100 / PerdTin.MONTHLY.perd, PerdTin.MONTHLY.perd) -
+        1) *
+      100
+    ).toFixed(2);
+    inputTie.value = tie;
+    return;
+  }
+
+  if (tin && perdTin === PerdTin.BIANNUAL.id) {
+    tie = (
+      (Math.pow(1 + tin / 100 / PerdTin.BIANNUAL.perd, PerdTin.BIANNUAL.perd) -
+        1) *
+      100
+    ).toFixed(2);
+    inputTie.value = tie;
+    return;
+  }
+
+  if (tin && perdTin === PerdTin.YEARLY.id) {
+    tie = (
+      (Math.pow(1 + tin / 100 / PerdTin.YEARLY.perd, PerdTin.YEARLY.perd) - 1) *
+      100
+    ).toFixed(2);
+    inputTie.value = tie;
     return;
   }
 };

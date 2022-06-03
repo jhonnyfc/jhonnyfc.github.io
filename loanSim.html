@@ -23,20 +23,26 @@
         <input id="years" type="text" onchange="loadYears" />
       </div>
       <div>
+        <label for="perdTin">Tin perioricidad</label><br />
+        <select name="" id="perdTin">
+          <option value="">-</option>
+          <option value="DAYLI">Diario</option>
+          <option value="MONTHLY">Mensual</option>
+          <option value="BIANNUAL">Semestral</option>
+          <option value="YEARLY">Anual</option>
+        </select>
+      </div>
+      <div>
+        <label for="tin">TIN</label><br />
+        <input id="tin" type="text" />
+      </div>
+      <div>
+        <label for="tie">Tasa interes efectiva totla</label><br />
+        <input id="tie" type="text" disabled />
+      </div>
+      <div>
         <label for="tae">TAE Anual</label><br />
         <input id="tae" type="text" onchange="loadTae" />
-      </div>
-      <div>
-        <label for="tinMonth">TIN Mensual</label><br />
-        <input id="tinMonth" type="text" />
-      </div>
-      <div>
-        <label for="tinYear">TIN Anual</label><br />
-        <input id="tinYear" type="text" />
-      </div>
-      <div>
-        <label for="tiea">Tasa interes efectiva totla</label><br />
-        <input id="tiea" type="text" disabled />
       </div>
 
       <br />
@@ -45,7 +51,7 @@
         <input id="monthPrice" type="text" disabled />
       </div>
       <div>
-        <label for="totalPrice">Pretamo total</label><br />
+        <label for="totalPrice">Prestamo total</label><br />
         <input id="totalPrice" type="text" disabled />
       </div>
     </center>
