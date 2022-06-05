@@ -154,6 +154,7 @@ const inputMonthPriceAll = document.getElementById(idMonthPriceAll);
 const inputTotalPrice = document.getElementById(idTotalPrice);
 
 const updateMonth = () => {
+  inputMonths.value = "";
   if (years) {
     months = fixNum(years * MONTHS_IN_YEAR);
     inputMonths.value = months;
@@ -161,6 +162,7 @@ const updateMonth = () => {
 };
 
 const updateYears = () => {
+  inputYears.value = "";
   if (months >= MONTHS_IN_YEAR) {
     years = fixNum(months / MONTHS_IN_YEAR);
     inputYears.value = years;
