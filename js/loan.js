@@ -39,7 +39,7 @@ let totalPrice;
 
 const loadPrice = () => {
   price = document.getElementById(idPrice).value;
-  updatePrices();
+  updateMonthlyPrice();
 };
 const inputPrice = document.getElementById(idPrice);
 inputPrice.addEventListener(inputTag, loadPrice);
@@ -48,7 +48,7 @@ const loadMonths = () => {
   months = document.getElementById(idMonths).value;
   updateYears();
   updateTiea();
-  updatePrices();
+  updateMonthlyPrice();
 };
 const inputMonths = document.getElementById(idMonths);
 inputMonths.addEventListener(inputTag, loadMonths);
@@ -57,7 +57,7 @@ const loadYears = () => {
   years = document.getElementById(idYears).value;
   updateMonth();
   updateTiea();
-  updatePrices();
+  updateMonthlyPrice();
 };
 const inputYears = document.getElementById(idYears);
 inputYears.addEventListener(inputTag, loadYears);
@@ -90,7 +90,7 @@ const loadPerdTin = () => {
   perdTin = document.getElementById(idPerdTin).value;
   updateTiea();
   calcMonthlyTie();
-  updatePrices();
+  updateMonthlyPrice();
 };
 const inputPerdTin = document.getElementById(idPerdTin);
 inputPerdTin.addEventListener(inputTag, loadPerdTin);
@@ -99,7 +99,7 @@ const loadTin = () => {
   tin = document.getElementById(idTin).value;
   updateTiea();
   calcMonthlyTie();
-  updatePrices();
+  updateMonthlyPrice();
 };
 const inputTin = document.getElementById(idTin);
 inputTin.addEventListener(inputTag, loadTin);
@@ -179,7 +179,7 @@ const calcMonthlyTie = () => {
   }
 };
 
-const updatePrices = () => {
+const updateMonthlyPrice = () => {
   if (price && monthlyTie && months) {
     monthPrice = (
       (price * monthlyTie) /
@@ -187,5 +187,13 @@ const updatePrices = () => {
       (1 - Math.pow(1 + monthlyTie / 100, -months))
     ).toFixed(2);
     inputMonthPrice.value = monthPrice;
+  }
+  updateTotalPrice();
+};
+
+const updateTotalPrice = () => {
+  if (monthPrice) {
+    totalPrice = (monthPrice * months).toFixed(2);
+    inputTotalPrice.value = totalPrice;
   }
 };
