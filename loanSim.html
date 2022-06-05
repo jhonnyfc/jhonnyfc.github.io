@@ -8,7 +8,7 @@
   </head>
   <body>
     <center><h1>Loan Calculator</h1></center>
-    <center>
+    <center style="padding-bottom: 1rem">
       <div>
         <label for="price">€ Dinero Prestamo</label><br />
         <input id="price" type="text" onchange="loadPrice" />
@@ -81,6 +81,20 @@
       <div>
         <label for="monthPrice">€ Cuota mensual</label><br />
         <input id="monthPrice" type="text" disabled />
+      </div>
+      <div>
+        <label for="monthPriceOpenExpe">€ Cuota mensual con C. Apertura</label
+        ><br />
+        <input id="monthPriceOpenExpe" type="text" disabled />
+      </div>
+      <div>
+        <label for="monthPriceOthers">€ Cuota mensual con O. Gastos</label
+        ><br />
+        <input id="monthPriceOthers" type="text" disabled />
+      </div>
+      <div>
+        <label for="monthPriceAll">€ Cuota mensual con T. Gastos</label><br />
+        <input id="monthPriceAll" type="text" disabled />
       </div>
       <div>
         <label for="totalPrice">€ Prestamo total</label><br />

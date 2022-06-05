@@ -28,6 +28,9 @@ const idMonthlyTie = "monthlyTie";
 const idTae = "tae";
 const idMonthTiePrice = "monthTiePrice";
 const idMonthPrice = "monthPrice";
+const idMonthPriceOpenExpe = "monthPriceOpenExpe";
+const idMonthPriceOthers = "monthPriceOthers";
+const idMonthPriceAll = "monthPriceAll";
 const idTotalPrice = "totalPrice";
 const inputTag = "input";
 
@@ -46,6 +49,8 @@ let tae;
 
 let monthTiePrice;
 let monthPrice;
+let monthPriceOpenExpe;
+let monthPriceOthers;
 let totalPrice;
 
 const inputPrice = document.getElementById(idPrice);
@@ -140,6 +145,12 @@ const inputMonthTiePrice = document.getElementById(idMonthTiePrice);
 
 const inputMonthPrice = document.getElementById(idMonthPrice);
 
+const inputMonthPriceOpenExpe = document.getElementById(idMonthPriceOpenExpe);
+
+const inputMonthPriceOthers = document.getElementById(idMonthPriceOthers);
+
+const inputMonthPriceAll = document.getElementById(idMonthPriceAll);
+
 const inputTotalPrice = document.getElementById(idTotalPrice);
 
 const updateMonth = () => {
@@ -206,7 +217,7 @@ const updateTie = () => {
         PerdTin.YEARLY.perd
       ) -
         1) *
-        PERCENTAJE_FACTORfixNum
+        PERCENTAJE_FACTOR.YEARLY.perd
     );
   }
   inputTie.value = tie;
@@ -231,13 +242,33 @@ const updateMonthTiePrice = () => {
     );
     inputMonthTiePrice.value = monthTiePrice;
   }
-  updateTotalPrice();
 };
 
 const updateMonthlyPrice = () => {
   if (totalPrice && months) {
     monthPrice = fixNum((totalPrice - openExpenses) / months);
     inputMonthPrice.value = monthPrice;
+  }
+};
+
+const updateMonthPriceOpenExpe = () => {
+  if (totalPrice && months && otherExpenses >= ZERO_ERUOS) {
+    monthPriceOpenExpe = fixNum((totalPrice - otherExpenses) / months);
+    inputMonthPriceOpenExpe.value = monthPriceOpenExpe;
+  }
+};
+
+const updateMonthPriceOthers = () => {
+  if (totalPrice && months && openExpenses >= ZERO_ERUOS) {
+    monthPriceOthers = fixNum((totalPrice - openExpenses) / months);
+    inputMonthPriceOthers.value = monthPriceOthers;
+  }
+};
+
+const updateMonthPriceAll = () => {
+  if (totalPrice && months) {
+    monthPriceAll = fixNum(totalPrice / months);
+    inputMonthPriceAll.value = monthPriceAll;
   }
 };
 
@@ -259,4 +290,7 @@ const updateTotalPrice = () => {
     inputTotalPrice.value = totalPrice;
   }
   updateMonthlyPrice();
+  updateMonthPriceAll();
+  updateMonthPriceOpenExpe();
+  updateMonthPriceOthers();
 };
