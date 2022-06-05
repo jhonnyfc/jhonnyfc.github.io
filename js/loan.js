@@ -8,6 +8,9 @@ const PerdTin = {
 const idPrice = "price";
 const idMonths = "months";
 const idYears = "years";
+const idOpenExpenses = "openExpenses";
+const idMonthlyExpenses = "monthlyExpenses";
+const idOtherExpenses = "otherExpenses";
 const idPerdTin = "perdTin";
 const idTin = "tin";
 const idTie = "tie";
@@ -19,6 +22,9 @@ const inputTag = "input";
 let price;
 let months;
 let years;
+let openExpenses;
+let monthlyExpenses;
+let otherExpenses;
 let perdTin;
 let tin;
 let tie;
@@ -48,6 +54,24 @@ const loadYears = () => {
 };
 const inputYears = document.getElementById(idYears);
 inputYears.addEventListener(inputTag, loadYears);
+
+const loadOpenExpensess = () => {
+  openExpenses = document.getElementById(idOpenExpenses).value;
+};
+const inputOpenExpenses = document.getElementById(idOpenExpenses);
+inputOpenExpenses.addEventListener(inputTag, loadOpenExpensess);
+
+const loadMonthlyExpenses = () => {
+  openExpenses = document.getElementById(idMonthlyExpenses).value;
+};
+const inputMonthlyExpenses = document.getElementById(idMonthlyExpenses);
+inputMonthlyExpenses.addEventListener(inputTag, loadMonthlyExpenses);
+
+const loadOtherExpenses = () => {
+  otherExpenses = document.getElementById(idOtherExpenses).value;
+};
+const inputOtherExpenses = document.getElementById(idOtherExpenses);
+inputOtherExpenses.addEventListener(inputTag, loadOtherExpenses);
 
 const loadTae = () => {
   tae = document.getElementById(idTae).value;
