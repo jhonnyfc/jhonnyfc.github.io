@@ -17,6 +17,7 @@ const PerdTin = {
 const idPrice = "price";
 const idMonths = "months";
 const idYears = "years";
+const idOpenExpensesPercentaje = "openExpensesPercentaje";
 const idOpenExpenses = "openExpenses";
 const idMonthlyExpenses = "monthlyExpenses";
 const idOtherExpenses = "otherExpenses";
@@ -33,6 +34,7 @@ const inputTag = "input";
 let price;
 let months;
 let years;
+let openExpensesPercentaje = ZERO_ERUOS;
 let openExpenses = ZERO_ERUOS;
 let monthlyExpenses = ZERO_ERUOS;
 let otherExpenses = ZERO_ERUOS;
@@ -49,6 +51,7 @@ let totalPrice;
 const inputPrice = document.getElementById(idPrice);
 const loadPrice = () => {
   price = Number(inputPrice.value);
+  calcOpenExpenses();
   updateMonthTiePrice();
   updateTotalPrice();
 };
@@ -74,13 +77,22 @@ const loadYears = () => {
 };
 inputYears.addEventListener(inputTag, loadYears);
 
-const inputOpenExpenses = document.getElementById(idOpenExpenses);
-inputOpenExpenses.value = openExpenses;
-const loadOpenExpenses = () => {
-  openExpenses = Number(inputOpenExpenses.value);
+const inputOpenExpensesPercentaje = document.getElementById(
+  idOpenExpensesPercentaje
+);
+inputOpenExpensesPercentaje.value = openExpensesPercentaje;
+const loadOpenExpensesPercentaje = () => {
+  openExpensesPercentaje = Number(inputOpenExpensesPercentaje.value);
+  calcOpenExpenses();
   updateTotalPrice();
 };
-inputOpenExpenses.addEventListener(inputTag, loadOpenExpenses);
+inputOpenExpensesPercentaje.addEventListener(
+  inputTag,
+  loadOpenExpensesPercentaje
+);
+
+const inputOpenExpenses = document.getElementById(idOpenExpenses);
+inputOpenExpenses.value = openExpenses;
 
 const inputMonthlyExpenses = document.getElementById(idMonthlyExpenses);
 inputMonthlyExpenses.value = monthlyExpenses;
@@ -144,6 +156,13 @@ const updateYears = () => {
   }
 };
 
+const calcOpenExpenses = () => {
+  if (openExpensesPercentaje >= ZERO_ERUOS && price >= ZERO_ERUOS) {
+    openExpenses = fixNum((price * openExpensesPercentaje) / PERCENTAJE_FACTOR);
+    inputOpenExpenses.value = openExpenses;
+  }
+};
+
 const updateTie = () => {
   tie = "";
 
@@ -199,7 +218,6 @@ const calcMonthlyTie = () => {
       (Math.pow(1 + tie / PERCENTAJE_FACTOR, 1 / MONTHS_IN_YEAR) - 1) *
         PERCENTAJE_FACTOR
     );
-    console.log(monthlyTie);
     inputMonthlyTie.value = monthlyTie;
   }
 };
@@ -218,14 +236,14 @@ const updateMonthTiePrice = () => {
 
 const updateMonthlyPrice = () => {
   if (totalPrice && months) {
-    monthPrice = fixNum(totalPrice / months);
+    monthPrice = fixNum((totalPrice - openExpenses) / months);
     inputMonthPrice.value = monthPrice;
   }
 };
 
 const updateTotalPrice = () => {
   if (
-    price &&
+    price >= ZERO_ERUOS &&
     openExpenses >= ZERO_ERUOS &&
     monthTiePrice &&
     months &&
@@ -233,7 +251,7 @@ const updateTotalPrice = () => {
     otherExpenses >= ZERO_ERUOS
   ) {
     totalPrice = fixNum(
-      price * (openExpenses / PERCENTAJE_FACTOR) +
+      openExpenses +
         monthTiePrice * months +
         monthlyExpenses * months +
         otherExpenses

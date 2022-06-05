@@ -23,8 +23,16 @@
         <input id="years" type="text" onchange="loadYears" />
       </div>
       <div>
-        <label for="openExpenses">% Comision apertura</label><br />
-        <input id="openExpenses" type="text" onchange="loadOpenExpenses" />
+        <label for="openExpensesPercentaje">% Comision apertura</label><br />
+        <input
+          id="openExpensesPercentaje"
+          type="text"
+          onchange="loadOpenExpensesPercentaje"
+        />
+      </div>
+      <div>
+        <label for="openExpenses">€ Comision apertura</label><br />
+        <input id="openExpenses" type="text" disabled />
       </div>
       <div>
         <label for="monthlyExpenses">€ Gastos mensuales</label><br />
@@ -71,7 +79,7 @@
         <input id="monthTiePrice" type="text" disabled />
       </div>
       <div>
-        <label for="monthPrice">€ Cuota mensual True</label><br />
+        <label for="monthPrice">€ Cuota mensual</label><br />
         <input id="monthPrice" type="text" disabled />
       </div>
       <div>
