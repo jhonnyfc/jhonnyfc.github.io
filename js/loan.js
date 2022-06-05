@@ -1,6 +1,11 @@
+const MONTHS_IN_YEAR = 12;
+const ZERO_ERUOS = 0;
+const PERCENTAJE_FACTOR = 100;
+const NUM_DECIMALS = 2;
+
 const PerdTin = {
   DAYLI: { id: "DAYLI", perd: 365 },
-  MONTHLY: { id: "MONTHLY", perd: 12 },
+  MONTHLY: { id: "MONTHLY", perd: MONTHS_IN_YEAR },
   BIANNUAL: { id: "BIANNUAL", perd: 2 },
   YEARLY: { id: "YEARLY", perd: 1 },
 };
@@ -21,14 +26,12 @@ const idMonthPrice = "monthPrice";
 const idTotalPrice = "totalPrice";
 const inputTag = "input";
 
-const MONTHS_IN_YEAR = 12;
-
 let price;
 let months;
 let years;
-let openExpenses = 0;
-let monthlyExpenses = 0;
-let otherExpenses = 0;
+let openExpenses = ZERO_ERUOS;
+let monthlyExpenses = ZERO_ERUOS;
+let otherExpenses = ZERO_ERUOS;
 let perdTin;
 let tin;
 let tie;
@@ -69,11 +72,11 @@ inputYears.addEventListener(inputTag, loadYears);
 
 const inputOpenExpenses = document.getElementById(idOpenExpenses);
 inputOpenExpenses.value = openExpenses;
-const loadOpenExpensess = () => {
+const loadOpenExpenses = () => {
   openExpenses = inputOpenExpenses.value;
   updateTotalPrice();
 };
-inputOpenExpenses.addEventListener(inputTag, loadOpenExpensess);
+inputOpenExpenses.addEventListener(inputTag, loadOpenExpenses);
 
 const inputMonthlyExpenses = document.getElementById(idMonthlyExpenses);
 inputMonthlyExpenses.value = monthlyExpenses;
@@ -84,6 +87,7 @@ const loadMonthlyExpenses = () => {
 inputMonthlyExpenses.addEventListener(inputTag, loadMonthlyExpenses);
 
 const inputOtherExpenses = document.getElementById(idOtherExpenses);
+inputOtherExpenses.value = otherExpenses;
 const loadOtherExpenses = () => {
   otherExpenses = inputOtherExpenses.value;
   updateTotalPrice();
@@ -124,14 +128,14 @@ const inputTotalPrice = document.getElementById(idTotalPrice);
 
 const updateMonth = () => {
   if (years) {
-    months = (years * 12).toFixed(2);
+    months = (years * MONTHS_IN_YEAR).toFixed(NUM_DECIMALS);
     inputMonths.value = months;
   }
 };
 
 const updateYears = () => {
-  if (months >= 12) {
-    years = (months / 12).toFixed(2);
+  if (months >= MONTHS_IN_YEAR) {
+    years = (months / MONTHS_IN_YEAR).toFixed(NUM_DECIMALS);
     inputYears.value = years;
   }
 };
@@ -142,38 +146,52 @@ const updateTiea = () => {
 
   if (tin && perdTin === PerdTin.DAYLI.id) {
     tie = (
-      (Math.pow(1 + tin / 100 / PerdTin.DAYLI.perd, PerdTin.DAYLI.perd) - 1) *
-      100
-    ).toFixed(2);
+      (Math.pow(
+        1 + tin / PERCENTAJE_FACTOR / PerdTin.DAYLI.perd,
+        PerdTin.DAYLI.perd
+      ) -
+        1) *
+      PERCENTAJE_FACTOR
+    ).toFixed(NUM_DECIMALS);
     inputTie.value = tie;
     return;
   }
 
   if (tin && perdTin === PerdTin.MONTHLY.id) {
     tie = (
-      (Math.pow(1 + tin / 100 / PerdTin.MONTHLY.perd, PerdTin.MONTHLY.perd) -
+      (Math.pow(
+        1 + tin / PERCENTAJE_FACTOR / PerdTin.MONTHLY.perd,
+        PerdTin.MONTHLY.perd
+      ) -
         1) *
-      100
-    ).toFixed(2);
+      PERCENTAJE_FACTOR
+    ).toFixed(NUM_DECIMALS);
     inputTie.value = tie;
     return;
   }
 
   if (tin && perdTin === PerdTin.BIANNUAL.id) {
     tie = (
-      (Math.pow(1 + tin / 100 / PerdTin.BIANNUAL.perd, PerdTin.BIANNUAL.perd) -
+      (Math.pow(
+        1 + tin / PERCENTAJE_FACTOR / PerdTin.BIANNUAL.perd,
+        PerdTin.BIANNUAL.perd
+      ) -
         1) *
-      100
-    ).toFixed(2);
+      PERCENTAJE_FACTOR
+    ).toFixed(NUM_DECIMALS);
     inputTie.value = tie;
     return;
   }
 
   if (tin && perdTin === PerdTin.YEARLY.id) {
     tie = (
-      (Math.pow(1 + tin / 100 / PerdTin.YEARLY.perd, PerdTin.YEARLY.perd) - 1) *
-      100
-    ).toFixed(2);
+      (Math.pow(
+        1 + tin / PERCENTAJE_FACTOR / PerdTin.YEARLY.perd,
+        PerdTin.YEARLY.perd
+      ) -
+        1) *
+      PERCENTAJE_FACTOR
+    ).toFixed(NUM_DECIMALS);
     inputTie.value = tie;
     return;
   }
@@ -182,9 +200,9 @@ const updateTiea = () => {
 const calcMonthlyTie = () => {
   if (tie) {
     monthlyTie = (
-      (Math.pow(1 + tie / 100, 1 / MONTHS_IN_YEAR) - 1) *
-      100
-    ).toFixed(2);
+      (Math.pow(1 + tie / PERCENTAJE_FACTOR, 1 / MONTHS_IN_YEAR) - 1) *
+      PERCENTAJE_FACTOR
+    ).toFixed(NUM_DECIMALS);
     inputMonthlyTie.value = monthlyTie;
   }
 };
@@ -193,9 +211,9 @@ const updateMonthTiePrice = () => {
   if (price && monthlyTie && months) {
     monthTiePrice = (
       (price * monthlyTie) /
-      100 /
-      (1 - Math.pow(1 + monthlyTie / 100, -months))
-    ).toFixed(2);
+      PERCENTAJE_FACTOR /
+      (1 - Math.pow(1 + monthlyTie / PERCENTAJE_FACTOR, -months))
+    ).toFixed(NUM_DECIMALS);
     inputMonthTiePrice.value = monthTiePrice;
   }
   updateTotalPrice();
@@ -203,7 +221,7 @@ const updateMonthTiePrice = () => {
 
 const updateMonthlyPrice = () => {
   if (totalPrice && months) {
-    monthPrice = (totalPrice / months).toFixed(2);
+    monthPrice = (totalPrice / months).toFixed(NUM_DECIMALS);
     inputMonthPrice.value = monthPrice;
   }
 };
@@ -211,16 +229,18 @@ const updateMonthlyPrice = () => {
 const updateTotalPrice = () => {
   if (
     price &&
-    openExpenses >= 0 &&
+    openExpenses >= ZERO_ERUOS &&
     monthTiePrice &&
     months &&
-    monthlyExpenses >= 0
+    monthlyExpenses >= ZERO_ERUOS &&
+    otherExpenses >= ZERO_ERUOS
   ) {
     totalPrice = (
-      price * (openExpenses / 100) +
+      price * (openExpenses / PERCENTAJE_FACTOR) +
       monthTiePrice * months +
-      monthlyExpenses * months
-    ).toFixed(2);
+      monthlyExpenses * months +
+      otherExpenses
+    ).toFixed(NUM_DECIMALS);
     inputTotalPrice.value = totalPrice;
   }
   updateMonthlyPrice();
