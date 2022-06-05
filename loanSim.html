@@ -36,12 +36,7 @@
       </div>
       <div>
         <label for="otherExpenses">€ Otros Gastos</label><br />
-        <input
-          id="otherExpenses"
-          type="text"
-          onchange="loadOtherExpenses"
-          value="0"
-        />
+        <input id="otherExpenses" type="text" onchange="loadOtherExpenses" />
       </div>
       <div>
         <label for="perdTin">Tin perioricidad</label><br />
@@ -67,12 +62,16 @@
       </div>
       <div>
         <label for="tae">% TAE Anual</label><br />
-        <input id="tae" type="text" onchange="loadTae" />
+        <input id="tae" type="text" disabled />
       </div>
 
       <br />
       <div>
-        <label for="monthPrice">€ Cuota mensual</label><br />
+        <label for="monthTiePrice">€ Cuota mensual TIE</label><br />
+        <input id="monthTiePrice" type="text" disabled />
+      </div>
+      <div>
+        <label for="monthPrice">€ Cuota mensual True</label><br />
         <input id="monthPrice" type="text" disabled />
       </div>
       <div>
