@@ -14,6 +14,7 @@ const idOtherExpenses = "otherExpenses";
 const idPerdTin = "perdTin";
 const idTin = "tin";
 const idTie = "tie";
+const idMonthlyTie = "tie";
 const idTae = "tae";
 const idMonthPrice = "monthPrice";
 const idTotalPrice = "totalPrice";
@@ -38,6 +39,7 @@ let totalPrice;
 
 const loadPrice = () => {
   price = document.getElementById(idPrice).value;
+  updatePrices();
 };
 const inputPrice = document.getElementById(idPrice);
 inputPrice.addEventListener(inputTag, loadPrice);
@@ -46,6 +48,7 @@ const loadMonths = () => {
   months = document.getElementById(idMonths).value;
   updateYears();
   updateTiea();
+  updatePrices();
 };
 const inputMonths = document.getElementById(idMonths);
 inputMonths.addEventListener(inputTag, loadMonths);
@@ -54,6 +57,7 @@ const loadYears = () => {
   years = document.getElementById(idYears).value;
   updateMonth();
   updateTiea();
+  updatePrices();
 };
 const inputYears = document.getElementById(idYears);
 inputYears.addEventListener(inputTag, loadYears);
@@ -86,6 +90,7 @@ const loadPerdTin = () => {
   perdTin = document.getElementById(idPerdTin).value;
   updateTiea();
   calcMonthlyTie();
+  updatePrices();
 };
 const inputPerdTin = document.getElementById(idPerdTin);
 inputPerdTin.addEventListener(inputTag, loadPerdTin);
@@ -94,11 +99,18 @@ const loadTin = () => {
   tin = document.getElementById(idTin).value;
   updateTiea();
   calcMonthlyTie();
+  updatePrices();
 };
 const inputTin = document.getElementById(idTin);
 inputTin.addEventListener(inputTag, loadTin);
 
 const inputTie = document.getElementById(idTie);
+
+const inputMonthlyTie = document.getElementById(idMonthlyTie);
+
+const inputMonthPrice = document.getElementById(idMonthPrice);
+
+const inputTotalPrice = document.getElementById(idTotalPrice);
 
 const updateMonth = () => {
   if (years) {
@@ -163,10 +175,17 @@ const calcMonthlyTie = () => {
       (Math.pow(1 + tie / 100, 1 / MONTHS_IN_YEAR) - 1) *
       100
     ).toFixed(2);
-    console.log(monthlyTie);
+    inputMonthlyTie.value = monthlyTie;
   }
 };
 
-const updatePrices = () => {};
-
-const updatePricesMonthTin = () => {};
+const updatePrices = () => {
+  if (price && monthlyTie && months) {
+    monthPrice = (
+      (price * monthlyTie) /
+      100 /
+      (1 - Math.pow(1 + monthlyTie / 100, -months))
+    ).toFixed(2);
+    inputMonthPrice.value = monthPrice;
+  }
+};
