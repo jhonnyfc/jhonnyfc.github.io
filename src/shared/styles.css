@@ -1,0 +1,18 @@
+/* https://dev.to/lennythedev/css-gotcha-how-to-fill-page-with-a-div-270j */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Pacifico";
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+}
