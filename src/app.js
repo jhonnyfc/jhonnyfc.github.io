@@ -1,4 +1,5 @@
 import "./shared/components/header.js";
+import "./sections/principalInfo/principalInfo.js";
 
 class AppComponent extends HTMLElement {
   constructor() {
@@ -7,35 +8,12 @@ class AppComponent extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
 
     const header = document.createElement("header-component");
+    const principalInfoComponet = document.createElement(
+      "principal-info-component"
+    );
 
     const mainContent = document.createElement("div");
     mainContent.innerHTML = `
-      <div id="contenedor">
-        <p style="color: rgba(255, 255, 255, 0)">lol</p>
-        <section id="primera_seccion">
-          <div id="aux"><h2>algo</h2></div>
-          <div id="contFoto">
-            <figure class="foto_perf">
-              <img
-                loading="lazy"
-                class="circuloFoto"
-                src="imgs/perfil2.webp"
-                alt="foto de perfil"
-              />
-            </figure>
-          </div>
-          <div id="nombreDiv">
-            <p id="nombre">Jhonny F. Chicaiza</p>
-            <p id="infoAutor">
-              <a href="https://www.unavarra.es/home" target="_blank"
-                ><abbr title="Public University of Navarre">UPNA</abbr></a
-              >
-              Computer Engineering Student
-            </p>
-          </div>
-        </section>
-      </div>
-
       <div id="contHabili">
         <div id="aux"><h2>algo</h2></div>
         <div id="tituloSk">
@@ -263,59 +241,9 @@ class AppComponent extends HTMLElement {
         box-sizing: border-box;
       }
 
-      /************************************************************************/
-      /* Primera Seccion */
-      /************************************************************************/
-      #contenedor {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-
-        background-image: url("/imgs/fondo2.webp");
-        background: linear-gradient(
-            rgba(255, 255, 255, 0.123),
-            rgba(255, 255, 255, 0.171)
-          ),
-          rgba(0, 0, 0, 0.096) url("/imgs/fondo2.webp") no-repeat;
-        background-size: cover;
-      }
-
-      #primera_seccion {
-        min-height: fit-content;
-      }
-
       #aux {
         font-size: 0px;
         color: transparent;
-      }
-
-      #contFoto {
-        margin-top: 11%;
-      }
-
-      #nombreDiv {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: fit-content;
-        color: white;
-        margin-top: 60px;
-      }
-
-      #nombre {
-        font-size: 3.6em;
-        text-align: center;
-        text-shadow: 3px 3px 3px #000000, 3px 3px 3px #000000, 3px 3px 3px #000000,
-          3px 3px 3px #000000;
-      }
-
-      #infoAutor {
-        margin-bottom: 5px;
-        font-size: 2em;
-        text-align: center;
-        text-shadow: 2px 2px 2px #000000, 2px 2px 2px #000000, 2px 2px 2px #000000,
-          2px 2px 2px #000000;
       }
 
       /************************************************************************/
@@ -449,19 +377,6 @@ class AppComponent extends HTMLElement {
           padding-bottom: 50px;
         }
 
-        .circuloFoto {
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          border-style: solid;
-          border-radius: 50%;
-          padding: 9px;
-          background-color: rgba(255, 249, 249, 0.521);
-          border: 0px;
-          width: 15%;
-          height: auto;
-        }
-
         #contFotos {
           width: 80%;
           margin-left: 16%;
@@ -507,20 +422,6 @@ class AppComponent extends HTMLElement {
           padding-bottom: 15%;
         }
 
-        .circuloFoto {
-          margin-top: 80px;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          border-style: solid;
-          border-radius: 50%;
-          padding: 9px;
-          background-color: rgba(255, 249, 249, 0.521);
-          border: 0px;
-          width: 35%;
-          height: auto;
-        }
-
         #contFotos {
           width: 100%;
           margin-top: 40px;
@@ -558,7 +459,7 @@ class AppComponent extends HTMLElement {
         padding: 0px;
         box-sizing: border-box;
       }
-      
+  
       #mainContent {
         height: 100%
       }
@@ -566,6 +467,7 @@ class AppComponent extends HTMLElement {
 
     shadow.appendChild(style);
     shadow.appendChild(header);
+    shadow.appendChild(principalInfoComponet);
     shadow.appendChild(mainContent);
   }
 }
