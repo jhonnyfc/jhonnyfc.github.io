@@ -27,7 +27,7 @@ class PrincipalInfoComponet extends HTMLElement {
                 <abbr title="Public University of Navarre">UPNA</abbr>
               </a
               >
-              Computer Engineering Student
+              Computer Engineer
             </p>
           </div>
         </section>
