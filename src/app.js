@@ -1,6 +1,7 @@
 import "./shared/components/header.js";
 import "./sections/principalInfo/principalInfo.js";
 import "./sections/skills/skills.js";
+import "./sections/projectsInfo/projectsInfo.js";
 import "./sections/contactInfo/contactInfo.js";
 import "./shared/components/footer.js";
 
@@ -15,6 +16,9 @@ class AppComponent extends HTMLElement {
       "principal-info-component"
     );
     const skillsComponent = document.createElement("skills-component");
+    const projectsInfoComponent = document.createElement(
+      "projects-info-component"
+    );
     const contactInfoComponent = document.createElement(
       "contact-info-component"
     );
@@ -37,6 +41,7 @@ class AppComponent extends HTMLElement {
     shadow.appendChild(headerComponent);
     shadow.appendChild(principalInfoComponet);
     shadow.appendChild(skillsComponent);
+    shadow.appendChild(projectsInfoComponent);
     shadow.appendChild(contactInfoComponent);
     shadow.appendChild(footerComponent);
   }
