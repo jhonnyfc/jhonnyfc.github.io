@@ -1,5 +1,6 @@
 import "./shared/components/header.js";
 import "./sections/principalInfo/principalInfo.js";
+import "./sections/skills/skills.js";
 
 class AppComponent extends HTMLElement {
   constructor() {
@@ -11,186 +12,10 @@ class AppComponent extends HTMLElement {
     const principalInfoComponet = document.createElement(
       "principal-info-component"
     );
+    const skillsComponent = document.createElement("skills-component");
 
     const mainContent = document.createElement("div");
     mainContent.innerHTML = `
-      <div id="contHabili">
-        <div id="aux"><h2>algo</h2></div>
-        <div id="tituloSk">
-          <p>Skills</p>
-        </div>
-
-        <div class="subtitSK">
-          <p>Web Development</p>
-        </div>
-        <div id="contFotos">
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/php.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/web.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/apache.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="subtitSK">
-          <p>Data mining and AI</p>
-        </div>
-        <div id="contFotos">
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/py.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/py2.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/opencv.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/pytor3.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/mat2.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="subtitSK">
-          <p>App Development</p>
-        </div>
-        <div id="contFotos">
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/java.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="subtitSK">
-          <p>Data base</p>
-        </div>
-
-        <div id="contFotos">
-          <figure class="logos">
-            <img
-              loading="lazy"
-              class="fotlogo"
-              src="imgs/sql.png"
-              alt="foto de perfil"
-            />
-            <figcaption class="levelName">
-              Junior <abbr title="Developer">Dev.</abbr>
-            </figcaption>
-          </figure>
-        </div>
-        <div id="texComple">
-          <p>I have basic concepts of Arduino, Docker, Autocad and PhotoShop</p>
-        </div>
-      </div>
-
-      <div id="ifoProyectos">
-        <div id="aux"><h2>aux</h2></div>
-        <div id="tituloSk">
-          <p>Projects</p>
-        </div>
-        <div class="subtitSK">
-          <p>Musyn</p>
-          <br />
-          <!-- <figure class="logos"> -->
-          <a href="https://musyn.live/" target="_blank">
-            <div class="effecto">
-              <img
-                loading="lazy"
-                src="imgs/musyn.webp"
-                alt="foto de perfil"
-                class="image fotoProy"
-                id="musynFoto"
-              />
-              <img
-                loading="lazy"
-                src="imgs/musyn_phone.webp"
-                alt="foto de perfil"
-                class="image fotoProy"
-                id="musynFoto_mov"
-              />
-            </div>
-          </a>
-          <!-- </figure> -->
-        </div>
-      </div>
-
       <div id="infoConta">
         <div id="aux"><h2>aux</h2></div>
         <div id="tituloSk">
@@ -205,7 +30,7 @@ class AppComponent extends HTMLElement {
                   src="imgs/git.png"
                   alt="foto de perfil"
                   class="image fotlogo"
-                />
+                />  
               </div>
             </a>
           </figure>
@@ -223,6 +48,7 @@ class AppComponent extends HTMLElement {
           </figure>
         </div>
       </div>
+
       <footer>
         <div id="myfoot">
           <p>©Copyright 2021 by jhonnyfc</p>
@@ -231,10 +57,6 @@ class AppComponent extends HTMLElement {
     `;
     const styleMain = document.createElement("style");
     styleMain.textContent = `
-      :host {
-        height: 100%;
-      }
-
       * {
         margin: 0px;
         padding: 0px;
@@ -246,17 +68,6 @@ class AppComponent extends HTMLElement {
         color: transparent;
       }
 
-      /************************************************************************/
-      /* Seccion Habilidades */
-      /************************************************************************/
-
-      #contHabili {
-        height: fit-content;
-        /* background-color: rgba(252, 186, 99, 0.568); */
-        background-color: rgb(10, 4, 95);
-        width: 100%;
-      }
-
       .fotlogo {
         display: block;
         border-style: solid;
@@ -265,22 +76,6 @@ class AppComponent extends HTMLElement {
         height: 80px;
         margin-left: auto;
         margin-right: auto;
-      }
-
-      .levelName {
-        margin-top: 3%;
-        font-size: 1.5em;
-        text-align: center;
-        color: rgb(255, 255, 255);
-      }
-
-      #texComple {
-        margin-top: 50px;
-        text-align: center;
-        font-size: 1.5em;
-        color: white;
-        margin-left: 20px;
-        margin-right: 20px;
       }
 
       /************************************************************************/
@@ -331,32 +126,10 @@ class AppComponent extends HTMLElement {
 
       @media screen and (min-width: 1025px) {
         #contenedor {
-          /* display: flex;
-          flex-direction: column;
-          justify-content: center;
-          width: 100%; */
           height: 100%;
           min-height: fit-content;
-
-          /* background-image: url('/imgs/fondo2.webp');
-          background: linear-gradient(rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0.171)), rgba(0, 0, 0, 0.096) url('/imgs/fondo2.webp') no-repeat;
-          background-size: cover; */
         }
       }
-
-      /* @media screen and (max-width: 1024.9999px) {
-        #contenedor {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          width: 100%;
-        
-          background-image: url('/imgs/fondo2.webp');
-          background: linear-gradient(rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0.171)), rgba(0, 0, 0, 0.096) url('/imgs/fondo2.webp') no-repeat;
-          background-size: cover;
-        }
-        
-      } */
 
       @media only screen and (min-width: 811px) {
         #tituloSk {
@@ -371,10 +144,6 @@ class AppComponent extends HTMLElement {
           font-size: 2.5em;
           text-align: center;
           color: rgb(255, 255, 255);
-        }
-
-        #contHabili {
-          padding-bottom: 50px;
         }
 
         #contFotos {
@@ -418,10 +187,6 @@ class AppComponent extends HTMLElement {
           color: rgb(255, 255, 255);
         }
 
-        #contHabili {
-          padding-bottom: 15%;
-        }
-
         #contFotos {
           width: 100%;
           margin-top: 40px;
@@ -459,15 +224,12 @@ class AppComponent extends HTMLElement {
         padding: 0px;
         box-sizing: border-box;
       }
-  
-      #mainContent {
-        height: 100%
-      }
     `;
 
     shadow.appendChild(style);
     shadow.appendChild(header);
     shadow.appendChild(principalInfoComponet);
+    shadow.appendChild(skillsComponent);
     shadow.appendChild(mainContent);
   }
 }
