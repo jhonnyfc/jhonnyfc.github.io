@@ -1,3 +1,179 @@
+import "./skill.js";
+
+const skillLevel = {
+  junior: "Junior",
+  intermediant: "Intermediant",
+  advance: "Advance",
+};
+
+const skillFieldsList = [
+  {
+    skillFieldTitle: "Frontend",
+    skills: [
+      {
+        urlImage: "imgs/skills/web.png",
+        altDescription: "html css js skill photo",
+        devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/vue.png",
+        altDescription: "vue skill photo",
+        devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/typescript.png",
+        altDescription: "typescript skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/litElement.png",
+        altDescription: "litElement skill photo",
+        devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/pinia.png",
+        altDescription: "pinia skill photo",
+        devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/vuex.png",
+        altDescription: "vuex skill photo",
+        devLevel: skillLevel.advance,
+      },
+    ],
+  },
+  {
+    skillFieldTitle: "Backend",
+    skills: [
+      {
+        urlImage: "imgs/skills/php.png",
+        altDescription: "php skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/apache.png",
+        altDescription: "apache skill photo",
+        devLevel: skillLevel.junior,
+      },
+      {
+        urlImage: "imgs/skills/spring.png",
+        altDescription: "spring skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/node.png",
+        altDescription: "node skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/express.png",
+        altDescription: "express skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+    ],
+  },
+  {
+    skillFieldTitle: "Testing & Maintenance   ",
+    skills: [
+      {
+        urlImage: "imgs/skills/jest.png",
+        altDescription: "jest skill photo",
+        devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/vitest.png",
+        altDescription: "vitest skill photo",
+        devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/cypress.png",
+        altDescription: "cypress skill photo",
+        devLevel: skillLevel.junior,
+      },
+      {
+        urlImage: "imgs/skills/cucumber.png",
+        altDescription: "cucumber skill photo",
+        devLevel: skillLevel.junior,
+      },
+      {
+        urlImage: "imgs/skills/sonar.png",
+        altDescription: "sonar skill photo",
+        devLevel: skillLevel.advance,
+      },
+    ],
+  },
+  {
+    skillFieldTitle: "Data mining and AI",
+    skills: [
+      {
+        urlImage: "imgs/skills/py.png",
+        altDescription: "python skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/pyKits.png",
+        altDescription: "python libraries skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/opencv.png",
+        altDescription: "open skill photo",
+        devLevel: skillLevel.junior,
+      },
+      {
+        urlImage: "imgs/skills/pytor3.png",
+        altDescription: "pytorch skill photo",
+        devLevel: skillLevel.junior,
+      },
+      {
+        urlImage: "imgs/skills/mat2.png",
+        altDescription: "mathlab skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+    ],
+  },
+  {
+    skillFieldTitle: "Mobile Development",
+    skills: [
+      {
+        urlImage: "imgs/skills/javaAndroid.png",
+        altDescription: "java skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+    ],
+  },
+  {
+    skillFieldTitle: "Data base",
+    skills: [
+      {
+        urlImage: "imgs/skills/sql.png",
+        altDescription: "sql skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/mongo.png",
+        altDescription: "mongo skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+    ],
+  },
+  {
+    skillFieldTitle: "Virtualization",
+    skills: [
+      {
+        urlImage: "imgs/skills/docker.webp",
+        altDescription: "docker skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+      {
+        urlImage: "imgs/skills/virtualBox.png",
+        altDescription: "virtualBox skill photo",
+        devLevel: skillLevel.intermediant,
+      },
+    ],
+  },
+];
+
 class SkillsComponent extends HTMLElement {
   constructor() {
     super();
@@ -11,141 +187,22 @@ class SkillsComponent extends HTMLElement {
         <p>Skills</p>
       </div>
 
-      <div class="subtitSK">
-        <p>Web Development</p>
-      </div>
-      <div id="contFotos">
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/php.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/web.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
+      ${skillFieldsList.reduce((acc, skillField) => {
+        return `
+          ${acc}
+          <div class="subtitSK">
+            <p>${skillField.skillFieldTitle}</p>
+          </div>
+          <div id="contFotos">
+            ${skillField.skills.reduce((acc, skill) => {
+              return `${acc}<skill-component
+                urlImage="${skill.urlImage}"
+                altDescripcion="${skill.altDescription}"
+                devLevel="${skill.devLevel}"
+              ></skill-component>`;
+            }, "")}</div>`;
+      }, "")}
 
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/apache.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="subtitSK">
-        <p>Data mining and AI</p>
-      </div>
-      <div id="contFotos">
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/py.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/py2.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/opencv.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/pytor3.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/mat2.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="subtitSK">
-        <p>App Development</p>
-      </div>
-      <div id="contFotos">
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/java.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-      </div>
-
-      <div class="subtitSK">
-        <p>Data base</p>
-      </div>
-
-      <div id="contFotos">
-        <figure class="logos">
-          <img
-            loading="lazy"
-            class="fotlogo"
-            src="imgs/sql.png"
-            alt="foto de perfil"
-          />
-          <figcaption class="levelName">
-            Junior <abbr title="Developer">Dev.</abbr>
-          </figcaption>
-        </figure>
-      </div>
       <div id="texComple">
         <p>I have basic concepts of Arduino, Docker, Autocad and PhotoShop</p>
       </div>
@@ -154,127 +211,98 @@ class SkillsComponent extends HTMLElement {
 
     const style = document.createElement("style");
     style.textContent = `
-    * {
-      margin: 0px;
-      padding: 0px;
-      box-sizing: border-box;
-    }
-
-    #aux {
-      font-size: 0px;
-      color: transparent;
-    }
-
-    .fotlogo {
-      display: block;
-      border-style: solid;
-      border: 0px;
-      width: auto;
-      height: 80px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /************************************************************************/
-    /* Seccion Habilidades */
-    /************************************************************************/
-
-    #contHabili {
-      height: fit-content;
-      /* background-color: rgba(252, 186, 99, 0.568); */
-      background-color: rgb(10, 4, 95);
-      width: 100%;
-    }
-
-    .levelName {
-      margin-top: 3%;
-      font-size: 1.5em;
-      text-align: center;
-      color: rgb(255, 255, 255);
-    }
-
-    #texComple {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 1.5em;
-      color: white;
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-
-    @media only screen and (min-width: 811px) {
-      #tituloSk {
-        margin-top: 75px;
-        font-size: 3.7em;
-        text-align: center;
-        color: rgb(255, 255, 255);
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
       }
 
-      .subtitSK {
-        margin-top: 4%;
-        font-size: 2.5em;
-        text-align: center;
-        color: rgb(255, 255, 255);
-      }
-
-      #contHabili {
-        padding-bottom: 50px;
+      #aux {
+        font-size: 0px;
+        color: transparent;
       }
 
       #contFotos {
-        width: 80%;
-        margin-left: 16%;
-        margin-right: auto;
-        margin-top: 40px;
-      }
-
-      .logos {
-        display: inline-block;
-        margin-left: 10%;
-        margin-right: 10%;
-        width: fit-content;
-        height: fit-content;
-        margin-top: 20px;
-      }
-    }
-
-    @media only screen and (max-width: 810.9999999px) {
-      #tituloSk {
-        margin-top: 49px;
-        font-size: 3.7em;
-        text-align: center;
-        color: rgb(255, 255, 255);
-      }
-
-      .subtitSK {
-        margin-top: 4%;
-        font-size: 2.1em;
-        text-align: center;
-        color: rgb(255, 255, 255);
-      }
-
-      #contHabili {
-        padding-bottom: 15%;
-      }
-
-      #contFotos {
-        width: 100%;
-        margin-top: 40px;
-        margin-bottom: 5%;
-        height: fit-content;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 40px
       }
 
-      .logos {
-        align-self: center;
-        width: fit-content;
+      /************************************************************************/
+      /* Seccion Habilidades */
+      /************************************************************************/
+
+      #contHabili {
         height: fit-content;
-        margin-top: 20px;
+        background-color: rgb(10, 4, 95);
+        width: 100%;
       }
-    }
-  `;
+
+      #texComple {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 1.5em;
+        color: white;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      @media only screen and (min-width: 811px) {
+        #tituloSk {
+          margin-top: 75px;
+          font-size: 3.7em;
+          text-align: center;
+          color: rgb(255, 255, 255);
+        }
+
+        .subtitSK {
+          margin-top: 4%;
+          font-size: 2.5em;
+          text-align: center;
+          color: rgb(255, 255, 255);
+        }
+
+        #contHabili {
+          padding-bottom: 50px;
+        }
+
+        #contFotos {
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 40px;
+        }
+      }
+
+      @media only screen and (max-width: 810.9999999px) {
+        #tituloSk {
+          margin-top: 49px;
+          font-size: 3.7em;
+          text-align: center;
+          color: rgb(255, 255, 255);
+        }
+
+        .subtitSK {
+          margin-top: 4%;
+          font-size: 2.1em;
+          text-align: center;
+          color: rgb(255, 255, 255);
+        }
+
+        #contHabili {
+          padding-bottom: 15%;
+        }
+
+        #contFotos {
+          width: 100%;
+          margin-top: 40px;
+          margin-bottom: 5%;
+          height: fit-content;
+        }
+      }
+    `;
 
     shadow.appendChild(style);
     shadow.appendChild(skillsContainer);
