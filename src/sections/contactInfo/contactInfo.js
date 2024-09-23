@@ -7,7 +7,6 @@ class ContactInfoComponent extends HTMLElement {
     const contactInfoEl = document.createElement("div");
     contactInfoEl.setAttribute("id", "infoConta");
     contactInfoEl.innerHTML = `
-      <div id="aux"><h2>aux</h2></div>
       <div id="tituloSk">
         <p>Contact Info</p>
       </div>
@@ -46,11 +45,6 @@ class ContactInfoComponent extends HTMLElement {
         box-sizing: border-box;
       }
 
-      #aux {
-        font-size: 0px;
-        color: transparent;
-      }
-
       .fotlogo {
         display: block;
         border-style: solid;
@@ -70,6 +64,10 @@ class ContactInfoComponent extends HTMLElement {
         width: 100%;
         height: fit-content;
         padding-bottom: 80px;
+        padding-top: 75px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px
       }
 
       .effecto:hover .image {
@@ -80,34 +78,37 @@ class ContactInfoComponent extends HTMLElement {
         opacity: 1;
       }
 
+      #contFotos {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        gap: 150px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
       @media only screen and (min-width: 811px) {
         #tituloSk {
-          margin-top: 75px;
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
         }
 
-        #contFotos {
-          width: 80%;
-          margin-left: 16%;
-          margin-right: auto;
-          margin-top: 40px;
-        }
-
         .logos {
           display: inline-block;
-          margin-left: 10%;
-          margin-right: 10%;
           width: fit-content;
           height: fit-content;
-          margin-top: 20px;
         }
       }
 
       @media only screen and (max-width: 810.9999999px) {
+        #infoConta {
+          padding-top: 46px;
+        }
+
         #tituloSk {
-          margin-top: 49px;
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
@@ -115,7 +116,6 @@ class ContactInfoComponent extends HTMLElement {
 
         #contFotos {
           width: 100%;
-          margin-top: 40px;
           margin-bottom: 5%;
           height: fit-content;
           display: flex;
@@ -127,7 +127,6 @@ class ContactInfoComponent extends HTMLElement {
           align-self: center;
           width: fit-content;
           height: fit-content;
-          margin-top: 20px;
         }
       }
     `;
