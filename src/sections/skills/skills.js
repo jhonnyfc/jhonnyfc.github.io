@@ -166,7 +166,7 @@ const skillFieldsList = [
         devLevel: skillLevel.intermediant,
       },
       {
-        urlImage: "imgs/skills/virtualBox.png",
+        urlImage: "imgs/skills/virtualbox.png",
         altDescription: "virtualBox skill photo",
         devLevel: skillLevel.intermediant,
       },
