@@ -34,9 +34,7 @@ class HeaderComponent extends HTMLElement {
           overflow: hidden;
           background-color: rgba(51, 51, 51, 0.349);
         }
-  
-        /* ul.topnav li {float: left;} */
-  
+
         ul.topnav li a {
           font-size: 1.3em;
           display: block;
@@ -61,37 +59,11 @@ class HeaderComponent extends HTMLElement {
         }
   
         ul {
-          /* margin-left: 10%; */
-          /* margin-right: 10%; */
           text-align: center;
         }
   
         ul.topnav li {
           display: inline-block;
-        }
-  
-        #infoAutor a:link {
-          color: rgb(193, 227, 250);
-          background-color: transparent;
-          text-decoration: none;
-        }
-  
-        #infoAutor a:visited {
-          color: pink;
-          background-color: transparent;
-          text-decoration: none;
-        }
-  
-        #infoAutor a:hover {
-          color: rgb(255, 210, 174);
-          background-color: transparent;
-          text-decoration: underline;
-        }
-  
-        #infoAutor a:active {
-          color: yellow;
-          background-color: transparent;
-          text-decoration: underline;
         }
       `;
 

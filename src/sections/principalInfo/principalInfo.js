@@ -7,9 +7,7 @@ class PrincipalInfoComponet extends HTMLElement {
     const divContainer = document.createElement("div");
     divContainer.setAttribute("id", "contenedor");
     divContainer.innerHTML = `
-        <p style="color: rgba(255, 255, 255, 0)">lol</p>
         <section id="primera_seccion">
-          <div id="aux"><h2>algo</h2></div>
           <div id="contFoto">
             <figure class="foto_perf">
               <img
@@ -22,13 +20,14 @@ class PrincipalInfoComponet extends HTMLElement {
           </div>
           <div id="nombreDiv">
             <p id="nombre">Jhonny F. Chicaiza</p>
-            <p id="infoAutor">
+            <p class="infoAutor">
               <a href="https://www.unavarra.es/home" target="_blank" >
                 <abbr title="Public University of Navarre">UPNA</abbr>
               </a
               >
               Computer Engineer
             </p>
+            <p class="infoAutor">Software developer</p>
           </div>
         </section>
     `;
@@ -57,19 +56,21 @@ class PrincipalInfoComponet extends HTMLElement {
           ),
           rgba(0, 0, 0, 0.096) url("/imgs/fondo2.webp") no-repeat;
         background-size: cover;
+        
+        padding-top: 8%;
+        padding-bottom: 50px;
       }
 
       #primera_seccion {
         min-height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
       }
 
       #aux {
         font-size: 0px;
         color: transparent;
-      }
-
-      #contFoto {
-        margin-top: 11%;
       }
 
       #nombreDiv {
@@ -78,7 +79,6 @@ class PrincipalInfoComponet extends HTMLElement {
         margin-right: auto;
         width: fit-content;
         color: white;
-        margin-top: 60px;
       }
 
       #nombre {
@@ -88,7 +88,7 @@ class PrincipalInfoComponet extends HTMLElement {
           3px 3px 3px #000000;
       }
 
-      #infoAutor {
+      .infoAutor {
         margin-bottom: 5px;
         font-size: 2em;
         text-align: center;
@@ -120,12 +120,11 @@ class PrincipalInfoComponet extends HTMLElement {
       }
 
       @media only screen and (max-width: 810.9999999px) {
-        #primera_seccion {
-          margin-top: 50px;
+        #contenedor {
+          padding-top: 130px;
         }
 
         .circuloFoto {
-          margin-top: 80px;
           display: block;
           margin-left: auto;
           margin-right: auto;
@@ -137,6 +136,30 @@ class PrincipalInfoComponet extends HTMLElement {
           width: 35%;
           height: auto;
         }
+      }
+
+      .infoAutor a:link {
+        color: #d1daff;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
+      .infoAutor a:visited {
+        color: #839aff;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
+      .infoAutor a:hover {
+        color: #3358fb;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+
+      .infoAutor a:active {
+        color: #f0f0f0;
+        background-color: transparent;
+        text-decoration: underline;
       }
     `;
 
