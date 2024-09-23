@@ -116,11 +116,11 @@ class ContactInfoComponent extends HTMLElement {
 
         #contFotos {
           width: 100%;
-          margin-bottom: 5%;
           height: fit-content;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          gap: 50px;
         }
 
         .logos {
