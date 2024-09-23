@@ -9,13 +9,11 @@ class SkillsComponent extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
 
     const skillsContainer = document.createElement("div");
+    skillsContainer.setAttribute("id", "contHabili");
     skillsContainer.innerHTML = `
-      <div id="aux"><h2>algo</h2></div>
       <div id="tituloSk">
         <p>Skills</p>
       </div>
-
-
       <div id="skills-list-container">
         ${skillFieldsList.reduce((acc, skillField) => {
           return `
@@ -40,7 +38,6 @@ class SkillsComponent extends HTMLElement {
         <p>I have knowledge also at Arduino C++, Docker, Autocad, PhotoShop, MatLab, Linux, Windows, C, Agile, Scrum, Figma, Clean Code and Solid.</p>
       </div>
     `;
-    skillsContainer.setAttribute("id", "contHabili");
 
     const style = document.createElement("style");
     style.textContent = `
@@ -83,6 +80,11 @@ class SkillsComponent extends HTMLElement {
         height: fit-content;
         background-color: rgb(10, 4, 95);
         width: 100%;
+        padding-top: 75px;
+        padding-bottom: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
       }
 
       #texComple {
@@ -97,7 +99,6 @@ class SkillsComponent extends HTMLElement {
 
       @media only screen and (min-width: 811px) {
         #tituloSk {
-          margin-top: 75px;
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
@@ -109,10 +110,6 @@ class SkillsComponent extends HTMLElement {
           color: rgb(255, 255, 255);
         }
 
-        #contHabili {
-          padding-bottom: 50px;
-        }
-
         .contFotos {
           width: 80%;
           margin-left: auto;
@@ -121,8 +118,12 @@ class SkillsComponent extends HTMLElement {
       }
 
       @media only screen and (max-width: 810.9999999px) {
+        #contHabili {
+          padding-top: 46px;
+          padding-bottom: 15%;
+        }
+
         #tituloSk {
-          margin-top: 49px;
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
@@ -132,11 +133,7 @@ class SkillsComponent extends HTMLElement {
           font-size: 2.3em;
           text-align: center;
           color: rgb(255, 255, 255);
-        }
-
-        #contHabili {
-          padding-bottom: 15%;
-        }
+        };
 
         .contFotos {
           width: 100%;
