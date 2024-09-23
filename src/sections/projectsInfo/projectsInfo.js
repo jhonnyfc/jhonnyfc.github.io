@@ -7,7 +7,6 @@ class ProjectsInfoConponent extends HTMLElement {
     const projectsInfoContent = document.createElement("div");
     projectsInfoContent.setAttribute("id", "ifoProyectos");
     projectsInfoContent.innerHTML = `
-      <div id="aux"><h2>aux</h2></div>
       <div id="tituloSk">
         <p>Projects</p>
       </div>
@@ -43,6 +42,10 @@ class ProjectsInfoConponent extends HTMLElement {
         width: 100%;
         height: fit-content;
         padding-bottom: 80px;
+        padding-top: 75px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
       }
 
       .image {
@@ -55,14 +58,12 @@ class ProjectsInfoConponent extends HTMLElement {
 
       @media only screen and (min-width: 811px) {
         #tituloSk {
-          margin-top: 75px;
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
         }
 
         .subtitSK {
-          margin-top: 4%;
           font-size: 2.5em;
           text-align: center;
           color: rgb(255, 255, 255);
@@ -75,12 +76,15 @@ class ProjectsInfoConponent extends HTMLElement {
       }
 
       @media only screen and (max-width: 810.9999999px) {
+        #ifoProyectos {
+          padding-top: 46px;
+        }
+
         #primera_seccion {
           margin-top: 50px;
         }
 
         #tituloSk {
-          margin-top: 49px;
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
