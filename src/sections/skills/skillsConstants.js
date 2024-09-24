@@ -98,6 +98,16 @@ export const skillFieldsList = [
         altDescription: "sonar skill photo",
         devLevel: skillLevel.advance,
       },
+      {
+        urlImage: "imgs/skills/mocha.svg",
+        altDescription: "mocha skill photo",
+        devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/chai.png",
+        altDescription: "chai skill photo",
+        devLevel: skillLevel.advance,
+      },
     ],
   },
   {
