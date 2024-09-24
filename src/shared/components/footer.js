@@ -7,7 +7,7 @@ class FooterComponent extends HTMLElement {
     const footerContent = document.createElement("footer");
     footerContent.innerHTML = `
       <div id="myfoot">
-        <p>©Copyright 2021 by jhonnyfc</p>
+        <p>©Copyright 2024 by jhonnyfc</p>
       </div>
     `;
     const style = document.createElement("style");
