@@ -65,7 +65,7 @@ class PrincipalInfoComponet extends HTMLElement {
         min-height: fit-content;
         display: flex;
         flex-direction: column;
-        gap: 60px;
+        gap: 50px;
       }
 
       #aux {
