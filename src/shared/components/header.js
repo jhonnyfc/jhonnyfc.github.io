@@ -1,3 +1,18 @@
+const sections = {
+  "home-link": {
+    component: "principal-info-component",
+  },
+  "skill-link": {
+    component: "skills-component",
+  },
+  "projects-link": {
+    component: "projects-info-component",
+  },
+  "contact-link": {
+    component: "contact-info-component",
+  },
+};
+
 class HeaderComponent extends HTMLElement {
   constructor() {
     super();
@@ -8,10 +23,10 @@ class HeaderComponent extends HTMLElement {
     header.setAttribute("id", "myhead");
     header.innerHTML = `
           <ul class="topnav">
-            <li><a href="#contenedor">Home</a></li>
-            <li><a href="#contHabili">Skills</a></li>
-            <li><a href="#ifoProyectos">Projects</a></li>
-            <li><a href="#infoConta">Contact</a></li>
+            <li><a class="sections-links" href="#home-link" id="home-link">Home</a></li>
+            <li><a class="sections-links" href="#skill-link" id="skill-link">Skills</a></li>
+            <li><a class="sections-links" href="#projects-link" id="projects-link">Projects</a></li>
+            <li><a class="sections-links" href="#contact-link" id="contact-link">Contact</a></li>
           </ul>
       `;
 
@@ -69,6 +84,47 @@ class HeaderComponent extends HTMLElement {
 
     shadow.appendChild(style);
     shadow.appendChild(header);
+  }
+
+  connectedCallback() {
+    this.scrollToShadowSectionHandlerBinded =
+      this.scrollToShadowSectionHandler.bind(this);
+    this.shadowRoot
+      .querySelectorAll(".sections-links")
+      .forEach((elementLink) => {
+        elementLink.addEventListener(
+          "click",
+          this.scrollToShadowSectionHandlerBinded
+        );
+      });
+
+    window.onload = () => {
+      setTimeout(() => {
+        this.sectionNavigation(window.location.hash.replace("#", ""));
+      }, 200);
+    };
+  }
+
+  disconnectedCallback() {
+    this.shadowRoot
+      .querySelectorAll(".sections-links")
+      .forEach((elementLink) => {
+        elementLink.removeEventListener(
+          "click",
+          this.scrollToShadowSectionHandlerBinded
+        );
+      });
+  }
+
+  scrollToShadowSectionHandler(event) {
+    this.sectionNavigation(event.currentTarget.id);
+  }
+
+  sectionNavigation(linkId) {
+    document
+      ?.querySelector("app-component")
+      ?.shadowRoot.querySelector(sections[linkId].component)
+      ?.scrollIntoView();
   }
 }
 
