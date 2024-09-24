@@ -21,7 +21,7 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/typescript.png",
         altDescription: "typescript skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.advance,
       },
       {
         urlImage: "imgs/skills/litElement.png",
@@ -37,6 +37,11 @@ export const skillFieldsList = [
         urlImage: "imgs/skills/vuex.png",
         altDescription: "vuex skill photo",
         devLevel: skillLevel.advance,
+      },
+      {
+        urlImage: "imgs/skills/angular.png",
+        altDescription: "angular skill photo",
+        devLevel: skillLevel.intermediant,
       },
     ],
   },
