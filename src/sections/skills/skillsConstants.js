@@ -48,6 +48,11 @@ export const skillFieldsList = [
         altDescription: "cells skill photo",
         devLevel: skillLevel.advance,
       },
+      {
+        urlImage: "imgs/skills/react.svg",
+        altDescription: "react skill photo",
+        devLevel: skillLevel.junior,
+      },
     ],
   },
   {
