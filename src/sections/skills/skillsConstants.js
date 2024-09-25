@@ -43,6 +43,11 @@ export const skillFieldsList = [
         altDescription: "angular skill photo",
         devLevel: skillLevel.intermediant,
       },
+      {
+        urlImage: "imgs/skills/cells.svg",
+        altDescription: "cells skill photo",
+        devLevel: skillLevel.advance,
+      },
     ],
   },
   {
