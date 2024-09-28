@@ -37,6 +37,10 @@ class HeaderComponent extends HTMLElement {
           padding: 0px;
           box-sizing: border-box;
         }
+
+      #myhead {
+        z-index: 5;
+      }
         
         /************************************************************************/
         /* Barra de Navegacion */
@@ -121,6 +125,10 @@ class HeaderComponent extends HTMLElement {
   }
 
   sectionNavigation(linkId) {
+    if (!linkId) {
+      return;
+    }
+
     document
       ?.querySelector("app-component")
       ?.shadowRoot.querySelector(sections[linkId].component)
