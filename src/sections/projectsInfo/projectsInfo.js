@@ -1,3 +1,5 @@
+import "./projectsCarousel.js";
+
 class ProjectsInfoConponent extends HTMLElement {
   constructor() {
     super();
@@ -10,16 +12,7 @@ class ProjectsInfoConponent extends HTMLElement {
       <div id="tituloSk">
         <p>Projects</p>
       </div>
-      <div class="subtitSK">
-        <p>Musyn</p>
-        <br>
-          <a href="https://musyn.live/" target="_blank">
-            <div class="effecto">
-              <img loading="lazy" src="imgs/musyn.webp" alt="foto de perfil" class="image fotoProy" id="musynFoto">
-              <img loading="lazy" src="imgs/musyn_phone.webp" alt="foto de perfil" class="image fotoProy" id="musynFoto_mov">
-            </div>
-          </a>
-      </div>
+      <projects-carousel-component></projects-carousel-component>
     `;
     const style = document.createElement("style");
     style.textContent = `
@@ -29,14 +22,9 @@ class ProjectsInfoConponent extends HTMLElement {
         box-sizing: border-box;
       }
 
-      .effecto:hover .image {
-        opacity: 0.55;
-      }
-
       /************************************************************************/
       /* Seccion Proyectos */
       /************************************************************************/
-
       #ifoProyectos {
         background-color: rgb(0, 0, 0);
         width: 100%;
@@ -48,30 +36,11 @@ class ProjectsInfoConponent extends HTMLElement {
         gap: 40px;
       }
 
-      .image {
-        opacity: 1;
-      }
-
-      .fotoProy{
-        height: 300px;
-      }
-
       @media only screen and (min-width: 811px) {
         #tituloSk {
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
-        }
-
-        .subtitSK {
-          font-size: 2.5em;
-          text-align: center;
-          color: rgb(255, 255, 255);
-        }
-
-        #musynFoto_mov {
-          visibility: collapse;
-          display: none;
         }
       }
 
@@ -80,26 +49,10 @@ class ProjectsInfoConponent extends HTMLElement {
           padding-top: 46px;
         }
 
-        #primera_seccion {
-          margin-top: 50px;
-        }
-
         #tituloSk {
           font-size: 3.7em;
           text-align: center;
           color: rgb(255, 255, 255);
-        }
-        
-        .subtitSK {
-          margin-top: 4%;
-          font-size: 2.1em;
-          text-align: center;
-          color: rgb(255, 255, 255);
-        }
-        
-        #musynFoto {
-          visibility: collapse;
-          display: none;
         }
       }
     `;
