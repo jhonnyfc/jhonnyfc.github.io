@@ -56,7 +56,7 @@ class ProjectsCarouselComponent extends HTMLElement {
   generarAnimacionCarrusel() {
     const numItems = projectsInfoList.length ?? 0;
 
-    const totalDuration = 5 * numItems;
+    const totalDuration = 10 * numItems;
 
     let keyframes = `@keyframes slide {`;
     for (let i = 0; i <= numItems; i++) {
