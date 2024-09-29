@@ -35,7 +35,7 @@ class SkillsComponent extends HTMLElement {
       </div>
 
       <div id="texComple">
-        <p>I have knowledge also at Arduino C++, Docker, Autocad, PhotoShop,
+        <p>I also have knowledge of Arduino C++, Docker, Autocad, PhotoShop,
         MatLab, Linux, Windows, C, Agile, Scrum, Figma, Clean Code and Solid,
         Object oriented programming, design patterns.</p>
       </div>
