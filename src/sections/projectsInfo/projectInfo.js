@@ -129,8 +129,8 @@ class ProjectInfoConponent extends HTMLElement {
     }
 
     return `
-      <img loading="lazy" src="${urlBigImage}" alt="foto de perfil" class="image fotoProy" id="musynFoto">
-      <img loading="lazy" src="${urlPortraitImage}" alt="foto de perfil" class="image fotoProy" id="musynFoto_mov">
+      <img src="${urlBigImage}" alt="foto de perfil" class="image fotoProy" id="musynFoto">
+      <img src="${urlPortraitImage}" alt="foto de perfil" class="image fotoProy" id="musynFoto_mov">
     `;
   }
 }
