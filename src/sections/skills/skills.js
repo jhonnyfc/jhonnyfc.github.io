@@ -17,27 +17,14 @@ class SkillsComponent extends HTMLElement {
       <div id="skills-list-container">
         ${skillFieldsList.reduce((acc, skillField) => {
           return `
-            ${acc}
-            <div class="skill-container">
-              <div class="subtitSK">
-                <p>${skillField.skillFieldTitle}</p>
-              </div>
-              <div class="contFotos">
-                ${skillField.skills.reduce((acc, skill) => {
-                  return `${acc}<skill-component
-                    urlImage="${skill.urlImage}"
-                    altDescripcion="${skill.altDescription}"
-                    devLevel="${skill.devLevel}"
-                  ></skill-component>`;
-                }, "")}</div>
-              </div>`;
+            ${acc}${this.buildSkillSection(skillField)}`;
         }, "")}
       </div>
 
       <div id="texComple">
         <p>I also have knowledge of Arduino C++, Docker, Autocad, PhotoShop,
         MatLab, Linux, Windows, C, Agile, Scrum, Figma, Clean Code and Solid,
-        Object oriented programming, design patterns.</p>
+        Object oriented programming, design patterns, Git.</p>
       </div>
     `;
 
@@ -147,6 +134,27 @@ class SkillsComponent extends HTMLElement {
 
     shadow.appendChild(style);
     shadow.appendChild(skillsContainer);
+  }
+
+  buildSkillSection(skillField) {
+    return `<div class="skill-container">
+        <div class="subtitSK">
+          <p>${skillField.skillFieldTitle}</p>
+        </div>
+        <div class="contFotos">
+          ${skillField.skills.reduce((acc, skill) => {
+            return `${acc}${this.buildSkillComponent(skill)}`;
+          }, "")}
+        </div>
+      </div>`;
+  }
+
+  buildSkillComponent(skill) {
+    return `<skill-component
+        urlImage="${skill.urlImage}"
+        altDescripcion="${skill.altDescription}"
+        devLevel="${skill.devLevel}">
+      </skill-component>`;
   }
 }
 
