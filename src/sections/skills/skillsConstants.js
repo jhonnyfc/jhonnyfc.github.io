@@ -1,6 +1,6 @@
 const skillLevel = {
   junior: "Junior",
-  intermediant: "Intermediant",
+  intermediate: "Intermediate",
   advance: "Advance",
 };
 
@@ -41,7 +41,7 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/angular.png",
         altDescription: "angular skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/cells.svg",
@@ -61,7 +61,7 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/php.png",
         altDescription: "php skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/apache.png",
@@ -71,17 +71,17 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/spring.png",
         altDescription: "spring skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/node.png",
         altDescription: "node skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/express.png",
         altDescription: "express skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
     ],
   },
@@ -131,12 +131,12 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/py.png",
         altDescription: "python skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/pyKits.png",
         altDescription: "python libraries skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/opencv.png",
@@ -151,7 +151,7 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/mat2.png",
         altDescription: "mathlab skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
     ],
   },
@@ -161,7 +161,7 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/javaAndroid.png",
         altDescription: "java skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
     ],
   },
@@ -171,12 +171,12 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/sql.png",
         altDescription: "sql skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/mongo.png",
         altDescription: "mongo skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
     ],
   },
@@ -186,12 +186,12 @@ export const skillFieldsList = [
       {
         urlImage: "imgs/skills/docker.webp",
         altDescription: "docker skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
       {
         urlImage: "imgs/skills/virtualbox.png",
         altDescription: "virtualBox skill photo",
-        devLevel: skillLevel.intermediant,
+        devLevel: skillLevel.intermediate,
       },
     ],
   },
