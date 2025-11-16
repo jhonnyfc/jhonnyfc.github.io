@@ -34,10 +34,11 @@ class ProjectInfoConponent extends HTMLElement {
         box-sizing: border-box;
       }
 
-      #ifoProyecto{
+      #ifoProyecto {
         display: flex;
         flex-direction: column;
         gap: 40px;
+        width: max-content;
       }
 
       .project-info-content {
@@ -56,7 +57,7 @@ class ProjectInfoConponent extends HTMLElement {
         opacity: 1;
       }
 
-      .fotoProy{
+      .fotoProy {
         height: 300px;
       }
 

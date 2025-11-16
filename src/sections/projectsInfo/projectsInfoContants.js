@@ -8,18 +8,20 @@ export const projectsInfoList = [
   {
     projectTitle: "Senior Frontend Developer",
     projectLink: "https://www.linkedin.com/in/jhonnyfc",
-    description: `Sopra Steria <br> Working on frontend developing Progressive Web Applications (PWAs),
-                  Single Page Applications (SPAs), or microfrontends for companies in the banking,
-                  e-commerce, personnel management, and other industries
+    description: `Sopra Steria <br>
+                  Working on frontend developing Progressive Web Applications (PWAs), <br>
+                  Single Page Applications (SPAs), or microfrontends for companies <br>
+                  in the banking, e-commerce, personnel management, and other industries
                 `,
   },
   {
     projectTitle: "Full Stack JR Developer",
     projectLink: "https://www.linkedin.com/in/jhonnyfc",
-    description: `Sopra Steria <br> Full stack software developer on different types
-                  of projects such as e-commerce and banking, among others.
+    description: `Sopra Steria <br>
+                  Full stack software developer on different types of projects <br>
+                  such as e-commerce and banking, among others. <br>
                   Mostly as a frontend, but also backend using Node.js. <br>
-                  Always using good practices such as unit testing, Sonar
+                  Always using good practices such as unit testing, Sonar <br>
                   analysis and adhering to good code formatting standards.
                   `,
   },
