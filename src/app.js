@@ -13,14 +13,14 @@ class AppComponent extends HTMLElement {
 
     const headerComponent = document.createElement("header-component");
     const principalInfoComponet = document.createElement(
-      "principal-info-component"
+      "principal-info-component",
     );
     const skillsComponent = document.createElement("skills-component");
     const projectsInfoComponent = document.createElement(
-      "projects-info-component"
+      "projects-info-component",
     );
     const contactInfoComponent = document.createElement(
-      "contact-info-component"
+      "contact-info-component",
     );
     const footerComponent = document.createElement("footer-component");
 
@@ -40,8 +40,8 @@ class AppComponent extends HTMLElement {
     shadow.appendChild(style);
     shadow.appendChild(headerComponent);
     shadow.appendChild(principalInfoComponet);
-    shadow.appendChild(skillsComponent);
     shadow.appendChild(projectsInfoComponent);
+    shadow.appendChild(skillsComponent);
     shadow.appendChild(contactInfoComponent);
     shadow.appendChild(footerComponent);
   }

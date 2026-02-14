@@ -6,6 +6,12 @@ export const projectsInfoList = [
     urlPortraitImage: "imgs/cheapirishfuel.png",
   },
   {
+    projectTitle: "Aidora App",
+    projectLink: "https://aidora.info/",
+    urlBigImage: "imgs/aidora.png",
+    urlPortraitImage: "imgs/aidora.png",
+  },
+  {
     projectTitle: "Senior Frontend Developer",
     projectLink: "https://www.linkedin.com/in/jhonnyfc",
     description: `Sopra Steria <br>
