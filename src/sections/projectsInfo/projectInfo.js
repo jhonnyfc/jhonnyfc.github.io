@@ -21,7 +21,7 @@ class ProjectInfoConponent extends HTMLElement {
           ${this.buildDescriptionContent(
             urlBigImage,
             urlPortraitImage,
-            description
+            description,
           )}
         </a>
       </div>
@@ -39,11 +39,18 @@ class ProjectInfoConponent extends HTMLElement {
         flex-direction: column;
         gap: 40px;
         width: max-content;
+        max-width: 90vw;
       }
 
       .project-info-content {
         display: flex;
         justify-content: center;
+      }
+
+      .project-link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .project-link:hover .image {
@@ -63,8 +70,6 @@ class ProjectInfoConponent extends HTMLElement {
 
       .project-info-description {
         text-align: center;
-        margin-left: auto;
-        margin-right: auto;
         width: 80%;
         font-size: 1.5em;
       }
