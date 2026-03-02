@@ -24,8 +24,8 @@ class HeaderComponent extends HTMLElement {
     header.innerHTML = `
           <ul class="topnav">
             <li><a class="sections-links" href="#home-link" id="home-link">Home</a></li>
-            <li><a class="sections-links" href="#skill-link" id="skill-link">Skills</a></li>
             <li><a class="sections-links" href="#projects-link" id="projects-link">Projects</a></li>
+            <li><a class="sections-links" href="#skill-link" id="skill-link">Skills</a></li>
             <li><a class="sections-links" href="#contact-link" id="contact-link">Contact</a></li>
           </ul>
       `;
@@ -98,7 +98,7 @@ class HeaderComponent extends HTMLElement {
       .forEach((elementLink) => {
         elementLink.addEventListener(
           "click",
-          this.scrollToShadowSectionHandlerBinded
+          this.scrollToShadowSectionHandlerBinded,
         );
       });
 
@@ -115,7 +115,7 @@ class HeaderComponent extends HTMLElement {
       .forEach((elementLink) => {
         elementLink.removeEventListener(
           "click",
-          this.scrollToShadowSectionHandlerBinded
+          this.scrollToShadowSectionHandlerBinded,
         );
       });
   }
